@@ -2,7 +2,6 @@
 pragma solidity 0.8.28;
 
 /*\
-Created by SolidityX for Decision Game
 Telegram: @solidityX
 \*/
 
@@ -276,7 +275,7 @@ contract Vaults {
     verifies if the signer of the message is equal to the depositer of the vault
     \*/
     function _verifyMessage(uint _id, bytes memory _sig) private view returns(bool) {
-        string memory _message = string(abi.encodePacked("I, ", Strings.toHexString(uint160(vaultInfo[_id].depositor), 20), " confirm that I have signed this message to be able to withdraw the funds from vault id: ", Strings.toString(_id)));
+        string memory _message = string(abi.encodePacked("I, ", Strings.toHexString(uint160(vaultInfo[_id].depositor), 20)," confirm that I have signed this message to be able to withdraw the funds from vault id: ", Strings.toString(_id)));
         bytes32 messageHash = _getMessageHash(_message);
         bytes32 ethSignedMessageHash = _getEthSignedMessageHash(messageHash);
 
